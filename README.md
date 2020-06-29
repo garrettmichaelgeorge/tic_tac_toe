@@ -14,14 +14,18 @@ Built using Ruby.
     ~~~
 
 ## To play:
+### Online
 
+1. [![Run on Repl.it](https://repl.it/badge/github/garrettmichaelgeorge/tic_tac_toe)](https://repl.it/github/garrettmichaelgeorge/tic_tac_toe)
+
+### Local Machine
 1. Clone this repository.
 
     ~~~
     $ git clone https://github.com/garrettmichaelgeorge/tic_tac_toe.git
     ~~~
 
-2. Run the executable.
+2. Run the main Ruby script.
 
     ~~~
     $ ruby tic_tac_toe.rb
