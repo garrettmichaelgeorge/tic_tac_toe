@@ -27,13 +27,18 @@ class Game
 
   def self.setup
     # Get player names from user input
-    print "Player X name: "
+    print "Player 1 (X's): "
     player_x = gets.chomp
     player_x = Player.new(player_x)
 
-    print "Player O name: "
+    print "Player O (O's): "
     player_o = gets.chomp
     player_o = Player.new(player_o)
+
+    animate_string('Great! The game is about to begin.')
+    animate_string('To exit at any time, type "exit" at the prompt and press <ENTER>.')
+
+    pause
 
     # Create new game
     @game = Game.new(player_x, player_o)
@@ -107,27 +112,27 @@ class Game
   end
 
   def whose_turn?
-    turn.odd? ? player_x : player_o
+    turn.even? || turn.zero? ? player_x : player_o
   end
 
   def next_turn
-    self.turn += 1
     player = whose_turn?
 
     # Print the grid to screen
-    turn == 1 ? grid.display_with_animation : grid.display
+    turn.zero? ? grid.display_with_animation : grid.display
 
     # Get grid position as input
     input = get_input_from(player)
 
     # Add the mark to the grid
     grid.add_mark!(player: player, position: input)
+    self.turn += 1
   end
 
   def get_input_from(player)
     input = ''
     until correct_input?(input)
-      print "#{player.name}'s turn!\nYour move: "
+      print "#{player.name}'s turn!\nYour move (1-9): "
       input = gets.chomp
       quit if input == 'exit'
       input = input.to_i

@@ -6,7 +6,10 @@ require_relative 'player'
 require_relative 'mark'
 require_relative 'turn'
 
+include PrintHelper
+
+display_welcome_animation
+
 @game = Game.setup
 
-# Begin gameplay
 @game.play

@@ -1,9 +1,10 @@
 module PrintHelper
   LINE_LENGTH = 30
+  DEFAULT_SYMBOL = '<>'
   LEADER = '=== '.freeze
-  DURATION_LONG = 1
+  DURATION_LONG = 0.7
   DURATION_MEDIUM = 0.5
-  DURATION_SHORT = 0.05
+  DURATION_SHORT = 0.04
 
   def pause
     sleep DURATION_LONG
@@ -23,7 +24,12 @@ module PrintHelper
 
   def animate_bars_vertical_across
     LINE_LENGTH.times do |i|
-      puts ' ' * i + '|'
+      puts ' ' * i + DEFAULT_SYMBOL
+      short_pause
+    end
+
+    LINE_LENGTH.times do |i|
+      puts ' ' * (LINE_LENGTH - i) + DEFAULT_SYMBOL
       short_pause
     end
   end
@@ -37,12 +43,12 @@ module PrintHelper
   end
 
   def animate_bars_horizontal_across(type: 'single')
-    case type
-    when 'double'
-      printer = '='
-    else
-      printer = '-'
-    end
+    printer = case type
+              when 'double'
+                '='
+              else
+                '-'
+              end
 
     LINE_LENGTH.times do
       print printer
@@ -54,9 +60,16 @@ module PrintHelper
   def display_intro_animation
     animate_bars_vertical_across
     pause
-    animate_string("BEGIN GAME")
+    animate_string('BEGIN GAME')
     pause
     animate_bars_vertical_across
+  end
+
+  def display_welcome_animation
+    animate_string('Welcome to Tic-Tac-Toe!')
+    pause
+    animate_string('Let\'s get started. Who is playing today?')
+    pause
   end
 
   alias p_single_line print_single_line
