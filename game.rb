@@ -25,11 +25,18 @@ class Game
     @turn = 0
   end
 
-  def self.create()
-    id = rand(1000..9999)
+  def self.setup
+    # Get player names from user input
+    print "Player X name: "
+    player_x = gets.chomp
     player_x = Player.new(player_x)
+
+    print "Player O name: "
+    player_o = gets.chomp
     player_o = Player.new(player_o)
-    Game.new(player_x: player_x, player_o: player_o)
+
+    # Create new game
+    Game.new(player_x, player_o)
   end
 
   def play
@@ -38,29 +45,27 @@ class Game
       puts
     end
 
-    pause
-    animate_string("BEGIN GAME")
-    pause
-    animate_bars_vertical_across
+    display_intro_animation
+
     # Gameplay
-    until self.over?
-      self.next_turn
+    until over?
+      next_turn
       puts
       grid.count_marks
       short_pause
     end
 
-    self.over
+    over
   end
 
   private
 
   def positions
-    self.grid.positions
+    grid.positions
   end
 
   def over?
-    !!self.winner
+    !!winner
   end
 
   def winner
@@ -86,7 +91,7 @@ class Game
   end
 
   def quit
-    self.pause
+    pause
     puts
     puts LEADER + 'GAME ABORTED'
     exit
@@ -105,8 +110,8 @@ class Game
   end
 
   def next_turn
-    self.turn += 1
-    player = self.whose_turn?
+    turn += 1
+    player = whose_turn?
 
     # Print the grid to screen
     turn == 1 ? grid.display_with_animation : grid.display
@@ -115,7 +120,7 @@ class Game
     input = get_input_from(player)
 
     # Add the mark to the grid
-    self.grid.add_mark!(player: player, position: input)
+    grid.add_mark!(player: player, position: input)
   end
 
   def get_input_from(player)

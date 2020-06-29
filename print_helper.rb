@@ -36,7 +36,7 @@ module PrintHelper
     puts
   end
 
-  def animate_bars_horizontal_across(type='single')
+  def animate_bars_horizontal_across(type: 'single')
     case type
     when 'double'
       printer = '='
@@ -49,6 +49,14 @@ module PrintHelper
       short_pause
     end
     puts
+  end
+
+  def display_intro_animation
+    animate_bars_vertical_across
+    pause
+    animate_string("BEGIN GAME")
+    pause
+    animate_bars_vertical_across
   end
 
   alias p_single_line print_single_line

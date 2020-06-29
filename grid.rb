@@ -47,9 +47,9 @@ class Grid
   end
 
   def display_with_animation_winner(winner)
-    self.display_with_animation
+    display_with_animation
     puts
-    self.pause
+    pause
     animate_bars_horizontal_across
     puts "Winner is #{winner.name}!"
     animate_bars_horizontal_across
@@ -57,14 +57,12 @@ class Grid
   end
 
   def count_marks
-    # Separate @grid (ary) into 3 arrays, grouped by mark type (e.g. x's, o's, and nil).
+    # Separate @grid (ary) into 2 arrays, grouped by mark type (i.e. x's and o's).
     @xs = positions.size.times.select { |i| positions[i].type == :x }
     @os = positions.size.times.select { |i| positions[i].type == :o }
 
-    # Check to see if any WINNING_ROWS are subsets of the array of marks. If so, return the mark type.
-    # puts "xs = #{xs}"
-    # puts "os = #{os}"
-    # puts "There are #{xs.size} x's on the board"
-    # puts "There are #{os.size} o's on the board"
+    # Optional: uncomment for debugging purposes
+    # puts "xs = #{xs} (#{xs.size} total)"
+    # puts "os = #{os} (#{xs.size} total)"
   end
 end
