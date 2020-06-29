@@ -34,7 +34,7 @@ class Game
 
   def play
     at_exit do 
-      puts "=== Thank you for playing!\n"
+      puts LEADER + "Thank you for playing!\n"
       puts
     end
 
@@ -67,14 +67,10 @@ class Game
     winning_mark = nil
 
     WINNING_ROWS.select do |row|
-      # if xs.size <= row.size
-      # puts "There are at least three x's on the board"
       if row.all? { |i| grid.xs.include?(i) }
         winning_mark = :x
       elsif row.all? { |i| grid.os.include?(i) }
         winning_mark = :o
-      # else
-      #   puts
       end
     end
 
@@ -83,13 +79,8 @@ class Game
     # Select the player whose mark type is that of the winning row
     winner = ObjectSpace.each_object(Player).to_a.select { |player| player.mark_type == winning_mark }.first
 
-    grid.display_with_animation
-    puts
-    self.pause
-    animate_bars_horizontal_across
-    puts "Winner is #{winner.name}!"
-    animate_bars_horizontal_across
-    puts
+    grid.display_with_animation_winner(winner)
+
     # winner.winner = true
     return winner
   end
@@ -102,9 +93,10 @@ class Game
   end
 
   def over
-    self.pause
+    pause
     puts
     puts LEADER + 'GAME OVER'
+    pause
     exit
   end
 

@@ -46,6 +46,15 @@ class Grid
     puts
   end
 
+  def display_with_animation_winner(winner)
+    self.display_with_animation
+    puts
+    self.pause
+    animate_bars_horizontal_across
+    puts "Winner is #{winner.name}!"
+    animate_bars_horizontal_across
+    puts
+  end
 
   def count_marks
     # Separate @grid (ary) into 3 arrays, grouped by mark type (e.g. x's, o's, and nil).
