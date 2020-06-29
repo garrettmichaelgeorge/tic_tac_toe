@@ -36,7 +36,8 @@ class Game
     player_o = Player.new(player_o)
 
     # Create new game
-    Game.new(player_x, player_o)
+    @game = Game.new(player_x, player_o)
+    @game
   end
 
   def play
@@ -110,7 +111,7 @@ class Game
   end
 
   def next_turn
-    turn += 1
+    self.turn += 1
     player = whose_turn?
 
     # Print the grid to screen
