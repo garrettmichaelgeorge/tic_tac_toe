@@ -1,9 +1,11 @@
 # Tic-Tac-Toe at the Command Line
-Play Tic-Tac-Toe from the command line! Requires two players (playing against the computer may be supported in future versions).
+Play Tic-Tac-Toe from the command line!
+
+Built using Ruby.
 
 ## Prerequisites:
 
-1. Basic familiarity with the *nix command line
+1. Two players (playing against the computer may be supported in future versions)
 2. Ruby (v1.9+) installed on local computer. To check:
 
     ~~~
