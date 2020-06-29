@@ -1,11 +1,13 @@
 # Tic-Tac-Toe at the Command Line
+[![Run on Repl.it](https://repl.it/badge/github/garrettmichaelgeorge/tic_tac_toe)](https://repl.it/github/garrettmichaelgeorge/tic_tac_toe)
+
 Play Tic-Tac-Toe from the command line!
 
 Built using Ruby.
 
 ## Prerequisites:
 
-1. Two players (playing against the computer may be supported in future versions)
+1. Two players (playing against the computer may be supported in future versions).
 2. Ruby (v1.9+) installed on local computer. To check:
 
     ~~~
@@ -16,7 +18,7 @@ Built using Ruby.
 ## To play:
 ### Online
 
-1. [![Run on Repl.it](https://repl.it/badge/github/garrettmichaelgeorge/tic_tac_toe)](https://repl.it/github/garrettmichaelgeorge/tic_tac_toe)
+1. Play online at [https://repl.it/@garrettmgeorge/tictactoe](https://repl.it/@garrettmgeorge/tictactoe).
 
 ### Local Machine
 1. Clone this repository.
