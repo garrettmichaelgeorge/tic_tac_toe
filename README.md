@@ -23,6 +23,6 @@ Built using Ruby.
 
 2. Run the executable.
 
-~~~
+    ~~~
     $ ruby tic_tac_toe.rb
-~~~
+    ~~~
