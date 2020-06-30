@@ -30,7 +30,11 @@ class Grid
     puts
     p_single_line
     puts
-    positions.each_slice(3).map { |a| puts a.join('|').center(LINE_LENGTH) }
+    positions.each_slice(3).map.with_index do |a, i|
+      # FIXME: Grid should print with horizontal lines as well as vertical, but only at places where position is "nil"
+      # a = a.map { |e| "_" if e.type.nil? }
+      puts a.join('|').center(LINE_LENGTH)
+    end
     puts
     p_single_line
     puts

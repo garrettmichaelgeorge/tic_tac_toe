@@ -2,12 +2,12 @@ module PrintHelper
   LINE_LENGTH = 30
   DEFAULT_SYMBOL = '<>'
   LEADER = '=== '.freeze
-  DURATION_LONG = 0.7
-  DURATION_MEDIUM = 0.5
+  DURATION_LONG = 1
+  DURATION_MEDIUM = 0.6
   DURATION_SHORT = 0.04
 
   def pause
-    sleep DURATION_LONG
+    sleep DURATION_MEDIUM
   end
 
   def short_pause

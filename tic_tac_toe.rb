@@ -1,5 +1,5 @@
 # Run this script to play the game
-require_relative 'lib/print_helper'
+require_relative 'lib/helpers/print_helper'
 require_relative 'lib/game'
 require_relative 'lib/grid'
 require_relative 'lib/player'
